@@ -1,0 +1,1 @@
+//Arama sonuçları sayfası
