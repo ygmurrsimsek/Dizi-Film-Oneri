@@ -1,0 +1,1 @@
+// İzlenenler için state yönetimi
