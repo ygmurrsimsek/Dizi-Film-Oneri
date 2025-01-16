@@ -1,4 +1,4 @@
-// import 
+// burası izlenecek filmlerin yer alacağı kısım
 function HomePage() {
     return (
         <div>

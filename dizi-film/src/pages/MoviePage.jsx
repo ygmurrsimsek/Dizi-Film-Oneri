@@ -1,1 +1,0 @@
-//film dizi detay sayfası
