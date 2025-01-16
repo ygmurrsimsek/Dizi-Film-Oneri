@@ -1,5 +1,5 @@
 header {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
 
 header .inner-content {
@@ -26,27 +26,27 @@ header .brand a {
 
 }
 header .nav-links {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
 header .nav-links li {
-    display: inline-block;
-    margin-right: 30px;
-  }
+  display: inline-block;
+  margin-right: 30px;
+}
   
-  header .nav-links li a {
-    color: #fff;
-  }
+header .nav-links li a {
+  color: #fff;
+}
   
-  header .nav-links li:last-child {
-    margin-right: 0;
-  }
+header .nav-links li:last-child {
+  margin-right: 0;
+}
 
-  .container {
+.container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -56,22 +56,22 @@ header .nav-links li {
     display: flex;
     flex-direction: row;
     
-  }
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .container {
       width: 750px;
     }
-  }
+}
   
-  @media (min-width: 992px) {
+@media (min-width: 992px) {
     .container {
       width: 970px;
     }
-  }
+}
   
-  @media (min-width: 1200px) {
+@media (min-width: 1200px) {
     .container {
       width: 1170px;
     }
-  }
+}
