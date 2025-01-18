@@ -6,9 +6,10 @@ function SearchBar() {
     //inputa girilen değeri bir statede tutucaz
     const [input, setInput] = useState('');
     //film aratınca axiostan gelen veriler için  bir dizi tutacağız
+    const [films, setFilms] = useState([]);
     async function onChange(e) {
         setInput(e.target.value);
-        const apiKey = "b5e1b3557476f9bcb4d1f26f0aa89763";
+        const apiKey = import.meta.env.VITE_TMDB_KEY;
         const language = "en-US";
         const page = 1;
         const includeAdult = false;
@@ -18,8 +19,7 @@ function SearchBar() {
 
         try {
             const response = await axios.get(url);
-            console.log(response.data);
-
+            setFilms(response.data.results);
         }
         catch (error) {
             console.error("Hata:", error.message || error);
@@ -39,9 +39,17 @@ function SearchBar() {
                         <div className="input-wrapper">
                             <input value={input} onChange={onChange} type='text' placeholder='Film, dizi, kişi ara...'></input>
                         </div>
+                        <div style={{ marginTop: '320px' }}>
+                            {films.map((movie) => {
+                                console.log(movie.title);  // Console'a yazdırma işlemi
+                                return <div key={movie.id}>{movie.title}</div>;
+                            })}
+                        </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
     )
 }
