@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
 import search from '../assets/images/search.png';
+import SearchList from './SearchList';
 function SearchBar() {
     //inputa girilen değeri bir statede tutucaz
     const [input, setInput] = useState('');
@@ -40,10 +41,15 @@ function SearchBar() {
                             <input value={input} onChange={onChange} type='text' placeholder='Film, dizi, kişi ara...'></input>
                         </div>
                         <div style={{ marginTop: '320px' }}>
-                            {films.map((movie) => {
-                                console.log(movie.title);  // Console'a yazdırma işlemi
-                                return <div key={movie.id}>{movie.title}</div>;
-                            })}
+                            {films.length > 0 && (//flm listemizde böyle bir değer varsa göstermesi için 
+                                <ul className="results">
+                                    {films.map((movie) => (
+                                        <li key={movie.id}>
+                                            <SearchList movie={movie} />
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
                     </div>
                 </div>
