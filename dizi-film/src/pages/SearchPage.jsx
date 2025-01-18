@@ -1,10 +1,9 @@
 //Arama sonuçları sayfası
-
-
+import SearchBar from '../components/SearchBar';
 function SearchPage() {
     return (
         <div>
-            selam ben arama sayfasıyım
+            <SearchBar />
         </div>
     )
 }
