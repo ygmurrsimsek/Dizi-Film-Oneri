@@ -1,13 +1,16 @@
 // Film arama kısmına film girince arananları burada göstereceğiz
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { addToWatch } from "../state/WatchSlice";
+import { addToWatch, addWatched } from "../state/WatchSlice";
 function SearchList({ movies }) {
     const dispatch = useDispatch();
 
     const addToWatchList = () => {
         dispatch(addToWatch(movies));
     };
+    const addToWatched = () => {
+        dispatch(addWatched(movies));
+    }
     return (
         <div>
             <div className="result-card">
@@ -31,7 +34,7 @@ function SearchList({ movies }) {
                     </div>
                     <div className="controls">
                         <button className="btn" onClick={() => addToWatchList(movies)}>Add To WatchList</button>
-                        <button className="btn">Add The Watched</button>
+                        <button className="btn" onClick={() => addToWatched(movies)}>Add The Watched</button>
                     </div>
                 </div>
             </div>
