@@ -1,7 +1,13 @@
 // Film arama kısmına film girince arananları burada göstereceğiz
 import PropTypes from "prop-types";
-
+import { useDispatch } from "react-redux";
+import { addToWatch } from "../state/WatchSlice";
 function SearchList({ movies }) {
+    const dispatch = useDispatch();
+
+    const addToWatchList = () => {
+        dispatch(addToWatch(movies));
+    };
     return (
         <div>
             <div className="result-card">
@@ -24,12 +30,11 @@ function SearchList({ movies }) {
                         <h4 className="release-date">IMDB : {movies.vote_average ? <b>{movies.vote_average}</b> : "-"}</h4>
                     </div>
                     <div className="controls">
-                        <button className="btn">Add To WatchList</button>
+                        <button className="btn" onClick={() => addToWatchList(movies)}>Add To WatchList</button>
                         <button className="btn">Add The Watched</button>
                     </div>
                 </div>
             </div>
-            {console.log(movies)}
         </div>
     );
 }
@@ -38,11 +43,13 @@ function SearchList({ movies }) {
 // PropTypes tanımlaması
 SearchList.propTypes = {
     movies: PropTypes.shape({
+        id: PropTypes.number.isRequired,
         poster_path: PropTypes.string,
         title: PropTypes.string,
         release_date: PropTypes.string,
         vote_average: PropTypes.number,
     }).isRequired, // movies prop'unun bir obje ve zorunlu olduğunu belirtiyoruz
 };
+
 
 export default SearchList;
