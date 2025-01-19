@@ -45,7 +45,7 @@ function SearchBar() {
                                 <ul className="results">
                                     {films.map((movie) => (
                                         <li key={movie.id}>
-                                            <SearchList movie={movie} />
+                                            <SearchList movies={movie} />
                                         </li>
                                     ))}
                                 </ul>
