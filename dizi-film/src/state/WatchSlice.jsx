@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    watched: [],
-    toWatch: [],
+    watched: JSON.parse(localStorage.getItem('watched')) || [],
+    toWatch: JSON.parse(localStorage.getItem('toWatch')) || [],
 }
 
 export const WatchSlice = createSlice({
