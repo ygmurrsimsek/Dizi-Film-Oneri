@@ -7,7 +7,6 @@ function Watched() {
 
     return (
         <div>
-            İzlenenler sayfasıyım
             <ul>
                 {toWatchedList.map((film) => (
                     <h3 key={film.id}>

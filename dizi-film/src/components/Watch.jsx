@@ -6,7 +6,6 @@ function Watch() {
     console.log("To Watch List:", toWatchList);
     return (
         <div>
-            <h2>İzlenecekler</h2>
             {toWatchList.map((film) => (
                 <div key={film.id}>
                     <h3>{film.title}</h3>
