@@ -1,6 +1,6 @@
 //izlenenler burada ayarlanıp WatchPageye
 import { useSelector } from "react-redux"
-
+import MovieControls from "./MovieControls";
 function Watched() {
     const toWatchedList = useSelector((state) => state.watch.watched);
     console.log("To Watched List:", toWatchedList);
@@ -31,7 +31,9 @@ function Watched() {
                                         ) : (
                                             <div className="filler-poster"></div>
                                         )}
+                                        <MovieControls movie={movie} />
                                     </div>
+
                                 ))
                             }
                         </div>
