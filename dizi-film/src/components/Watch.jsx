@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "../App.css";
-
+import MovieControls from "./MovieControls";
 function Watch() {
     const toWatchList = useSelector((state) => state.watch.toWatch);
     console.log("To Watch List:", toWatchList);
@@ -30,6 +30,7 @@ function Watch() {
                                 ) : (
                                     <div className="filler-poster"></div>
                                 )}
+                                <MovieControls movie={movie} />
                             </div>
                         ))}
                     </div>
