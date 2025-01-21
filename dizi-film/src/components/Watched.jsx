@@ -38,7 +38,7 @@ function Watched() {
                             }
                         </div>
                     ) : ((
-                        <p>No movies in the watch list.</p>
+                        <h2 className="no-movies">Listenizde İzlenen Film Yok...</h2>
                     ))
                 }
             </div>

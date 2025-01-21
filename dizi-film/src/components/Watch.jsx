@@ -35,7 +35,7 @@ function Watch() {
                         ))}
                     </div>
                 ) : (
-                    <p>No movies in the watch list.</p>
+                    <h2 className="no-movies">Listenizde Film Yok...</h2>
                 )}
             </div>
         </div>
