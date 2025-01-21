@@ -23,17 +23,39 @@ export const WatchSlice = createSlice({
             }
             state.watched = state.watched.filter(item => item.id !== movie.id);
         },
-        removeWatched: (state, action) => {
-            state.watched = state.watched.filter(movie => movie.id !== action.payload)
+        removeFilms: (state, action) => {
+            const movieId = action.payload.id; // action.payload'tan id alınıyor
+            console.log("Removing movie with id:", movieId);
+
+            // Watched ve ToWatch dizilerinden filmi filtreleyerek kaldırıyoruz
+            state.watched = state.watched.filter((movie) => movie.id !== movieId);
+            state.toWatch = state.toWatch.filter((movie) => movie.id !== movieId);
+
+            // LocalStorage'ı güncelle
+            localStorage.setItem("watched", JSON.stringify(state.watched));
+            localStorage.setItem("toWatch", JSON.stringify(state.toWatch));
         },
-        removeToWatch: (state, action) => {
-            state.toWatch = state.toWatch.filter(movie => movie.id !== action.payload)
+        moveToWatched: (state, action) => {
+            const movieId = action.payload;
+            const movie = state.toWatch.find((item) => item.id === movieId);
+            if (movie) {
+                state.toWatch = state.toWatch.filter((item) => item.id !== movieId);
+                state.watched.push(movie);
+            }
+        },
+        moveToWatch: (state, action) => {
+            const movieId = action.payload;
+            const movie = state.watched.find((item) => item.id === movieId);
+            if (movie) {
+                state.watched = state.watched.filter((item) => item.id !== movieId);
+                state.toWatch.push(movie);
+            }
         },
 
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { addToWatch, addWatched } = WatchSlice.actions
+export const { addToWatch, addWatched, removeFilms, moveToWatch, moveToWatched } = WatchSlice.actions
 
 export default WatchSlice.reducer

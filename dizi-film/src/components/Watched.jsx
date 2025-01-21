@@ -31,7 +31,7 @@ function Watched() {
                                         ) : (
                                             <div className="filler-poster"></div>
                                         )}
-                                        <MovieControls movie={movie} />
+                                        <MovieControls movies={movie} type="watched" />
                                     </div>
 
                                 ))
